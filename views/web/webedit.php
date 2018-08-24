@@ -25,7 +25,7 @@ $this->lang->load('server_1c');
 if($errs)
 	echo infobox_warning(lang('base_error'), implode("<br>", $errs));
 
-echo form_open('server_1c/web_edit');
+echo form_open('server_1c/web_1c/web_edit');
 echo form_header(lang('server_1c_web_add'));
 
 $sslverifyoptions = array('none' => 'none', 'optional' => 'optional',  'require' => 'require' , 'optional_no_ca' => 'optional_no_ca'   );

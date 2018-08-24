@@ -148,7 +148,7 @@ class Web_1c extends ClearOS_Controller
 	$data['base']        	 = $this->input->post('base');
 	$data['sslverifyclient']     = $this->input->post('sslverifyclient');
 	
-	if(!($err = $this->server_1c->update($data))) {
+	if(!($err = $this->server_1c->web_update($data))) {
 	    $httpd = new Daemon('httpd');
 	    if($httpd->get_running_state())$httpd->restart();
 	    redirect('/server_1c');
