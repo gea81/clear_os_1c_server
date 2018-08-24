@@ -1,0 +1,15 @@
+[Unit]
+Description=1C:Enterprise Server
+After=syslog.target
+After=network.target
+[Service]
+Type=forking
+WorkingDirectory=/opt/1C/v8.3/x86_64
+User=usr1cv8
+Group=grp1cv8
+ExecStart=/etc/init.d/srv1cv83 start
+ExecReload=/etc/init.d/srv1cv83 restart
+ExecStop=/etc/init.d/srv1cv83 stop
+TimeoutSec=30
+[Install]
+WantedBy=multi-user.target

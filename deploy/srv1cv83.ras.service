@@ -1,0 +1,19 @@
+[Unit]
+Description=RAS
+After=syslog.target
+After=network.target
+
+[Service]
+Type=forking
+WorkingDirectory=/opt/1C/v8.3/x86_64
+User=usr1cv8
+Group=grp1cv8
+OOMScoreAdjust=-100
+ExecStart=/opt/1C/v8.3/x86_64/ras cluster --daemon -p 1545
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+TimeoutSec=300
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
